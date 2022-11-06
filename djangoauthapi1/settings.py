@@ -178,16 +178,16 @@ CORS_ALLOWED_ORIGINS = [
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Golf Cart Admin",
+    "site_title": "YES Admin",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "Golf Cart",
+    "site_header": "Yes",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "Golf Cart",
+    "site_brand": "Yes",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "static/users/img/logo.jpg",
+    "site_logo": None,
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": None,
@@ -202,10 +202,10 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the Golf",
+    "welcome_sign": "Welcome to the Yes",
 
     # Copyright on the footer
-    "copyright": "Golf Cart",
+    "copyright": "Yes",
 
     # The model admin to search from the search bar, search bar omitted if excluded
     "search_model": "auth.User",
