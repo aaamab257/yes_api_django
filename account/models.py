@@ -5,7 +5,7 @@ from django.contrib.auth.models import BaseUserManager,AbstractBaseUser
 
 #  Custom User Manager
 class UserManager(BaseUserManager):
-  def create_user(self, email, name,is_admin,phone_number , division , state , school , password=None, password2=None):
+  def create_user(self, email, name,is_admin,phone_number,is_active , division , state , school , password=None, password2=None):
       """
       Creates and saves a User with the given email, name, tc and password.
       """
@@ -18,8 +18,8 @@ class UserManager(BaseUserManager):
           state=state,
           school=school,
           division=division,
-          phone_number=phone_number
-          
+          phone_number=phone_number,
+          is_active = is_active
       )
       user.is_admin = is_admin
       user.is_superuser =is_admin
@@ -27,7 +27,7 @@ class UserManager(BaseUserManager):
       user.save(using=self._db)
       return user
 
-  def create_superuser(self, email,phone_number ,is_admin, name,division , state , school, password=None):
+  def create_superuser(self, email,phone_number,is_active ,is_admin, name,division , state , school, password=None):
       """
       Creates and saves a superuser with the given email, name, tc and password.
       """
@@ -38,7 +38,8 @@ class UserManager(BaseUserManager):
           state=state,
           school=school,
           division=division,
-          phone_number=phone_number
+          phone_number=phone_number,
+          is_active=is_active
           
       )
       user.is_admin = is_admin
@@ -57,7 +58,7 @@ class User(AbstractBaseUser , PermissionsMixin):
   state = models.CharField(max_length=255)
   school = models.CharField(max_length=255)
   phone_number = models.CharField(max_length=15)
-  is_active = models.BooleanField(default=True)
+  is_active = models.BooleanField(default=False)
   is_admin = models.BooleanField(default=False)
   is_superuser = models.BooleanField(default=False)
   created_at = models.DateTimeField(auto_now_add=True)
