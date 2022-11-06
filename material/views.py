@@ -28,4 +28,4 @@ class AllDivisions(APIView):
     def get(self, request, format=None):
         divisions = Division.objects.all()
         serializer = DivisionSerializer(divisions, many=True)
-        return Response('items':serializer.data)
+        return Response({'items':serializer.data})
