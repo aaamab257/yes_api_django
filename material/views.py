@@ -21,3 +21,11 @@ class DivisionApiView(APIView):
       serializer.save()
       
       return Response(serializer.data)
+
+
+class AllDivisions(APIView):
+    renderer_classes = [UserRenderer]
+    def get(self, request, format=None):
+        divisions = Division.objects.all()
+        serializer = DivisionSerializer(divisions, many=True)
+        return Response(serializer.data)
